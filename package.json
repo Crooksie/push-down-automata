@@ -1,0 +1,19 @@
+{
+  "name": "push-down-automata",
+  "version": "0.0.1",
+  "description": "A generic push down automata implementation in typescript",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "tsc"
+  },
+  "files": [
+    "lib"
+  ],
+  "author": "Sam Crooks",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.5.2"
+  }
+}
