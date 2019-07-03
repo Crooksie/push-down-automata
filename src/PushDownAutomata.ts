@@ -8,13 +8,13 @@ export class PushDownAutomata implements PushState {
         this.stack.push(state);
     }
 
-    public exec() {
+    public exec(...args: any[]) {
         while(true) {
             const currentState = this.stack.pop();
             if (currentState === undefined) {
                 return;
             }
-            const currentStateResult = currentState.exec(this);
+            const currentStateResult = currentState.exec(this, ...args);
             switch (currentStateResult) {
                 case StateResult.KeepStateReturn:
                     this.stack.push(currentState);
