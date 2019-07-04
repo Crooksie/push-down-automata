@@ -56,19 +56,22 @@ describe("Woodcutter example program", () => {
     pda.exec(woodcutter);
     console.log("at", woodcutter.location);
     expect(woodcutter.location).toBe("forest");
+    expect(woodcutter.wood).toBe(0);
 
     // cut wood
     pda.exec(woodcutter);
     console.log("at", woodcutter.location);
     expect(woodcutter.location).toBe("forest");
+    expect(woodcutter.wood).toBe(10);
 
     // go home
     pda.exec(woodcutter);
     expect(woodcutter.location).toBe("home");
+    expect(woodcutter.wood).toBe(10);
 
     // finish
     pda.exec(woodcutter);
     expect(pda.empty).toBe(true);
-    expect(woodcutter.wood);
+    expect(woodcutter.wood).toBe(10);
   });
 });
