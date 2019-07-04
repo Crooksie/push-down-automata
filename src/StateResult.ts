@@ -1,5 +1,6 @@
 export enum StateResult {
-    PopStateReturn,
-    KeepStateReturn,
-    PopStateRunNext
-};
+  PopStateReturn,
+  KeepStateReturn,
+  PopStateRunNext,
+  KeepStateRunNext,
+}
