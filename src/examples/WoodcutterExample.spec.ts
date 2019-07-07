@@ -1,3 +1,4 @@
+import { createState } from "../createState";
 import { createStateSequence } from "../createStateSequence";
 import { PushDownAutomata } from "../PushDownAutomata";
 import { PushState } from "../PushState";
@@ -11,22 +12,18 @@ describe("Woodcutter example program", () => {
 
   // states
   const goto = (location: string) => {
-    return {
-      exec: (stack: PushState, person: Person) => {
-        console.log("go to", location);
-        person.location = location;
-        return StateResult.PopStateReturn;
-      },
-    };
+    return createState((stack: PushState, person: Person) => {
+      console.log("go to", location);
+      person.location = location;
+      return StateResult.PopStateReturn;
+    });
   };
 
-  const chopTree = {
-    exec: (stack: PushState, person: Person) => {
-      console.log("chopping a tree");
-      person.wood = 10;
-      return StateResult.PopStateReturn;
-    },
-  };
+  const chopTree = createState((stack: PushState, person: Person) => {
+    console.log("chopping a tree");
+    person.wood = 10;
+    return StateResult.PopStateReturn;
+  });
 
   const collectWood = createStateSequence(
     goto("forest"),
